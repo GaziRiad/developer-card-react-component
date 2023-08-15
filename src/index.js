@@ -7,10 +7,7 @@ function App() {
     <div className="card">
       <Avatar src="imgs/7.jpg" />
       <div className="data">
-        <Intro
-          fullName="Riad Hallouch"
-          data="Front-end web developer and freelancer at Upwork. when not coding or studying, I like to play board games, video-games, and mostly out having fun with friends."
-        />
+        <Intro />
         {/* Should contain one Skill component
         for each web dev skill that you have,
         customized with props */}
@@ -26,8 +23,12 @@ function Avatar(props) {
 function Intro(props) {
   return (
     <div>
-      <h1>{props.fullName}</h1>
-      <p>{props.data}</p>
+      <h1>Riad Hallouch</h1>
+      <p>
+        Front-end web developer and freelancer at Upwork. when not coding or
+        studying, I like to play board games, video-games, and mostly out having
+        fun with friends.
+      </p>
     </div>
   );
 }
