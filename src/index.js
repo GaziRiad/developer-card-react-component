@@ -2,16 +2,41 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css";
 
+const skills = [
+  {
+    skill: "HTML+CSS",
+    level: "advanced",
+    color: "#2662EA",
+  },
+  {
+    skill: "JavaScript",
+    level: "advanced",
+    color: "#EFD81D",
+  },
+  {
+    skill: "Web Design",
+    level: "intermediate",
+    color: "#C3DCAF",
+  },
+  {
+    skill: "Git and GitHub",
+    level: "intermediate",
+    color: "#E84F33",
+  },
+  {
+    skill: "React",
+    level: "beginner",
+    color: "#60DAFB",
+  },
+];
+
 function App() {
   return (
     <div className="card">
       <Avatar src="imgs/7.jpg" />
       <div className="data">
         <Intro />
-        {/* Should contain one Skill component
-        for each web dev skill that you have,
-        customized with props */}
-        <SkillList />
+        <SkillList skills={skills} />
       </div>
     </div>
   );
@@ -32,23 +57,27 @@ function Intro(props) {
     </div>
   );
 }
-function SkillList() {
-  return (
-    <div className="skill-list">
-      <DevSkill name="Html + css 💪" backgroundColor="#0284c7" />
-      <DevSkill name="Javascript 💪" backgroundColor="#fde047" />
-      <DevSkill name="Web design 👍" backgroundColor="#86efac" />
-      <DevSkill name="React 👶" backgroundColor="#7dd3fc" />
-      <DevSkill name="Git & Github👍" backgroundColor="#e11d48" />
-    </div>
-  );
+function SkillList({ skills }) {
+  console.log(skills);
+  return skills ? (
+    <ul className="skill-list">
+      {skills.map((skill) => (
+        <DevSkill skill={skill} key={skill.skill} />
+      ))}
+    </ul>
+  ) : null;
 }
 
-function DevSkill(props) {
+function DevSkill({ skill }) {
   return (
-    <span className="skill" style={{ backgroundColor: props.backgroundColor }}>
-      {props.name}
-    </span>
+    <li className="skill" style={{ backgroundColor: skill.color }}>
+      <span>{skill.skill}</span>
+      <span>
+        {skill.level === "beginner" && "👶"}
+        {skill.level === "intermediate" && "👍"}
+        {skill.level === "advanced" && "💪"}
+      </span>
+    </li>
   );
 }
 
