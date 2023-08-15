@@ -4,4 +4,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Project image:
 
-![Developer card](./imgs/7.jpg)
+![Developer card](./public/imgs/7.jpg)
